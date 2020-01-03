@@ -11,7 +11,7 @@ const dummy_products = [
   new Product("glasses", "aviator glasses", 16.95, uuid())
 ];
 
-app.get("/users", (req, res) => {
+app.get("/products", (req, res) => {
   res.json(dummy_products);
 });
 

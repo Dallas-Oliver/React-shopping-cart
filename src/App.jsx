@@ -16,7 +16,7 @@ class App extends React.Component {
   //on component mount, make a call to the server retrieving all items in the "available products DB" and push them to this.state.products.
 
   componentDidMount = async () => {
-    let response = await fetch("http://localhost:3000/users");
+    let response = await fetch("http://localhost:3000/products");
     let products = await response.json();
     console.log(products);
 
