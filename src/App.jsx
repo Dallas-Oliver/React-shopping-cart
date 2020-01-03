@@ -23,7 +23,7 @@ class App extends React.Component {
     this.setState({ products });
   };
 
-  addToCart = (index, id) => {
+  addToCart = async (index, id) => {
     const tempProducts = [...this.state.products];
     const productToAdd = tempProducts
       .filter(product => product.id === id)
@@ -36,6 +36,18 @@ class App extends React.Component {
         productToAdd.price,
         uuid()
       );
+
+      const response = await fetch("http://localhost:3000/products/cart", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify(newItem)
+      });
+
+      const items = await response.json();
+      console.log(items);
 
       this.setState(
         prevState => ({
