@@ -7,17 +7,21 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 
 class App extends React.Component {
   state = {
-    products: [
-      new Product("shoes", "leather shoes", 34.99, uuid()),
-      new Product("shirt", "striped shirt", 23.95, uuid()),
-      new Product("pants", "blue jean denim pants", 42.91, uuid())
-    ],
+    products: [],
     productsInCart: [],
     numberOfItemsInCart: 0,
-    cartTotal: 0
+    cartTotal: "0"
   };
 
-  //on component mount, make a call to the the server retrieving all items in the "available products DB" and push them to this.state.products.
+  //on component mount, make a call to the server retrieving all items in the "available products DB" and push them to this.state.products.
+
+  componentDidMount = async () => {
+    let response = await fetch("http://localhost:3000/users");
+    let products = await response.json();
+    console.log(products);
+
+    this.setState({ products });
+  };
 
   addToCart = (index, id) => {
     const tempProducts = [...this.state.products];
@@ -69,7 +73,9 @@ class App extends React.Component {
       0
     );
 
-    this.setState({ cartTotal });
+    let finalPrice = cartTotal.toFixed(2);
+
+    this.setState({ cartTotal: finalPrice });
   };
 
   render() {
