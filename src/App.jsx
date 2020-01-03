@@ -60,9 +60,9 @@ class App extends React.Component {
 
   calculateCartTotal = () => {
     const productPrices = [];
-    for (let i = 0; i < this.state.productsInCart.length; i++) {
-      productPrices.push(this.state.productsInCart[i].price);
-    }
+    this.state.productsInCart.forEach(product => {
+      productPrices.push(product.price);
+    });
 
     const cartTotal = productPrices.reduce(
       (accumulator, current) => accumulator + current,
