@@ -53,7 +53,6 @@ class App extends React.Component {
         numberOfItemsInCart: prevState.numberOfItemsInCart - 1
       }),
       () => {
-        console.log(this.state);
         this.calculateCartTotal();
       }
     );
@@ -70,14 +69,7 @@ class App extends React.Component {
       0
     );
 
-    this.setState({ cartTotal }, () =>
-      console.log(
-        productPrices,
-        this.state.cartTotal,
-        this.state.numberOfItemsInCart,
-        this.state.productsInCart
-      )
-    );
+    this.setState({ cartTotal });
   };
 
   render() {
