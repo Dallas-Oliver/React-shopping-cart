@@ -1,3 +1,5 @@
+A single page application that allows the user to add and remove dummy products to and from a shopping cart. The cart total and total number of items in the cart is updated each time an item is added or removed. The app utilizes React-Router-Dom for routing.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
