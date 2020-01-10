@@ -12,7 +12,7 @@ class ShoppingCart extends Component {
               return (
                 <ProductItem
                   key={index}
-                  imageSrc={product.imageSrc}
+                  image={product.imageURL}
                   title={product.title}
                   description={product.description}
                   price={product.price}

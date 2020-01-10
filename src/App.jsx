@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import Product from "./ProductClass";
 import uuid from "uuid/v4";
 import ProductPage from "./ProductPage";
 import ShoppingCart from "./ShoppingCart";
 import { Route, NavLink, HashRouter } from "react-router-dom";
 
-class App extends React.Component {
+class App extends Component {
   state = {
     products: [],
     productsInCart: [],
@@ -18,9 +18,8 @@ class App extends React.Component {
   componentDidMount = async () => {
     let response = await fetch("http://localhost:3000/products");
     let products = await response.json();
-    console.log(products);
 
-    this.setState({ products });
+    this.setState({ products: products.dummy_products });
   };
 
   addToCart = async (index, id) => {
@@ -31,6 +30,7 @@ class App extends React.Component {
 
     if (productToAdd) {
       const newItem = new Product(
+        productToAdd.imageURL,
         productToAdd.title,
         productToAdd.description,
         productToAdd.price,

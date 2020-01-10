@@ -18,17 +18,34 @@ html {
 }
 
 .products-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 0px;
 }
 
 .product {
-  border: 1px solid #bfbeb2;
-  border-radius: 4px;
-  box-shadow: 0.5px 1px 10px rgba(0, 0, 0, 0.1);
-  padding: 7px;
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 247.25px;
+  height: 526px;
+  border: 0.1px solid #bfbeb2;
+  padding: 10px 4px;
+  margin: 0px;
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.image-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .desc-title {
   display: flex;
   flex-direction: row;

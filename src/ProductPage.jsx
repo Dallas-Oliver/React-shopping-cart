@@ -10,6 +10,7 @@ class ProductPage extends Component {
             {this.props.products.map((product, index) => {
               return (
                 <ProductItem
+                  image={product.imageURL}
                   key={product.id}
                   imageSrc={product.imageSrc}
                   title={product.title}
